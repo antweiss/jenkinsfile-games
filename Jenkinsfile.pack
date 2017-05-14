@@ -1,0 +1,9 @@
+node {
+  stage('start'){
+    echo "start"
+  }
+  stage('pack')
+  {
+    echo "pack"
+  }
+}
