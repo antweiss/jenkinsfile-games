@@ -6,6 +6,17 @@ pipeline {
           string(name: 'ENVIRONMENT', defaultValue: 'staging', description: 'Version')        
       }
       stages {
+      
+         stage("scm)
+         {
+            git url:"https://github.com/Natural-Intelligence/"+params.SERVICE
+         }
+         d = new com.naturalint.data()
+         stage("deploy") {
+           script{
+              d.deploy(params.SERVICE, params.VERSION, params.ENVIRONMENT)
+           }
+         }
          stage ("test"){
           steps {
               echo "Deploy to "+ params.ENVIRONMENT
