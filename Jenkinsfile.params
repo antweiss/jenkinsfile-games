@@ -1,0 +1,14 @@
+pipeline {
+  parameters {
+          string(name: 'SERVICE', defaultValue: '', description: 'Service name')
+          string(name: 'VERSION', defaultValue: 'latest', description: 'Version')
+          string(name: 'ENVIRONMENT', defaultValue: 'staging', description: 'Version')        
+      }
+      stages {
+         stage ("test"){
+          steps {
+              echo "Deploy to "+ params.ENVIRONMENT
+              }
+           }
+      }
+}
