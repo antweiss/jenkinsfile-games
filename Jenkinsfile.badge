@@ -4,6 +4,8 @@ pipeline {
     stage ("badge") {
         steps {
            script {
+              service = "little-badger"
+              tag = env.BUILD_NUMBER
               url = env.JENKINS_URL + "/deploy-dummy/buildWithParameters?SERVICE=" + service + "&VERSION=" + tag + "&ENVIRONMENT=staging" 
               addBadge(icon : "success.gif", text: "Deploy to staging", link: url)
             }
