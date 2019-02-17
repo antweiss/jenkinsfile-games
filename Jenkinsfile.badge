@@ -1,0 +1,13 @@
+pipeline {
+  agent any
+  stages {
+    stage ("badge") {
+        steps {
+           script {
+              url = env.JENKINS_URL + "/deploy-dummy/buildWithParameters?SERVICE=" + service + "&VERSION=" + tag + "&ENVIRONMENT=staging" 
+              addBadge(icon : "success.gif", text: "Deploy to staging", link: url)
+            }
+        }
+     }
+  }
+}  
